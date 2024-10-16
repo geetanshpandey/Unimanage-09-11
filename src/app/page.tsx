@@ -127,7 +127,7 @@ export default function Home() {
       
       {/* Modern Video Player */}
       <div>
-        <ModernVideoPlayer />
+        <ModernVideoPlayer videoSrc='path/of/video' />
       </div>
       
       <div>

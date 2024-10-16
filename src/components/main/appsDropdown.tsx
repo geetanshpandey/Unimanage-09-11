@@ -68,10 +68,18 @@ const AppsDropdown = () => {
               <Link href="/finance/invoicing">
                 <DropdownMenuItem>Invoicing</DropdownMenuItem>
               </Link>
-              <DropdownMenuItem>Expenses</DropdownMenuItem>
-              <DropdownMenuItem>Spreadsheet (BI)</DropdownMenuItem>
-              <DropdownMenuItem>Documents</DropdownMenuItem>
-              <DropdownMenuItem>Sign</DropdownMenuItem>
+              <Link href="/finance/expenses">
+                <DropdownMenuItem>Expenses</DropdownMenuItem>
+              </Link>
+              <Link href="/finance/spreadsheet">
+                <DropdownMenuItem>Spreadsheet (BI)</DropdownMenuItem>
+              </Link>
+              <Link href="/finance/document">
+                <DropdownMenuItem>Documents</DropdownMenuItem>
+              </Link>
+              <Link href="/finance/sign">
+                <DropdownMenuItem>Sign</DropdownMenuItem>
+              </Link>
             </div>
           </div>
           {/* Sales Section */}
@@ -79,12 +87,24 @@ const AppsDropdown = () => {
             <h3 className="font-semibold text-gray-700">SALES</h3>
             <hr className="my-2 border-gray-300" />
             <div className="space-y-1">
-              <DropdownMenuItem>CRM</DropdownMenuItem>
-              <DropdownMenuItem>Sales</DropdownMenuItem>
-              <DropdownMenuItem>POS Shop</DropdownMenuItem>
-              <DropdownMenuItem>POS Restaurant</DropdownMenuItem>
-              <DropdownMenuItem>Subscriptions</DropdownMenuItem>
-              <DropdownMenuItem>Rental</DropdownMenuItem>
+            <Link href="/sales-app/crm">
+                <DropdownMenuItem>CRM</DropdownMenuItem>
+              </Link>
+            <Link href="/sales-app/sales">
+                <DropdownMenuItem>Sales</DropdownMenuItem>
+              </Link>
+            <Link href="/sales-app/pos-shop">
+                <DropdownMenuItem>POS Shop</DropdownMenuItem>
+              </Link>
+            <Link href="/sales-app/pos-res">
+                <DropdownMenuItem>POS Restraunt</DropdownMenuItem>
+              </Link>
+            <Link href="/sales-app/subscription">
+                <DropdownMenuItem>Subscription</DropdownMenuItem>
+              </Link>
+            <Link href="/sales-app/rental">
+                <DropdownMenuItem>Rental</DropdownMenuItem>
+              </Link>
             </div>
           </div>
           {/* Websites Section */}
@@ -99,10 +119,18 @@ const AppsDropdown = () => {
               <Link href="/website/eccomerce">
                 <DropdownMenuItem>eCommerce</DropdownMenuItem>
               </Link>
-              <DropdownMenuItem>Blog</DropdownMenuItem>
-              <DropdownMenuItem>Forum</DropdownMenuItem>
-              <DropdownMenuItem>Live Chat</DropdownMenuItem>
-              <DropdownMenuItem>eLearning</DropdownMenuItem>
+              <Link href="/website/blog">
+                <DropdownMenuItem>Blog</DropdownMenuItem>
+              </Link>
+              <Link href="/website/forum">
+                <DropdownMenuItem>Forum</DropdownMenuItem>
+              </Link>
+              <Link href="/website/livechat">
+                <DropdownMenuItem>Live-Chat</DropdownMenuItem>
+              </Link>
+              <Link href="/website/elearning">
+                <DropdownMenuItem>eLearning</DropdownMenuItem>
+              </Link>
             </div>
           </div>
           {/* Supply Chain Section */}
@@ -110,12 +138,24 @@ const AppsDropdown = () => {
             <h3 className="font-semibold text-gray-700">SUPPLY CHAIN</h3>
             <hr className="my-2 border-gray-300" />
             <div className="space-y-1">
-              <DropdownMenuItem>Inventory</DropdownMenuItem>
-              <DropdownMenuItem>Manufacturing</DropdownMenuItem>
-              <DropdownMenuItem>PLM</DropdownMenuItem>
-              <DropdownMenuItem>Purchase</DropdownMenuItem>
-              <DropdownMenuItem>Maintenance</DropdownMenuItem>
-              <DropdownMenuItem>Quality</DropdownMenuItem>
+            <Link href="/supplychain/inventory">
+                <DropdownMenuItem>Inventory</DropdownMenuItem>
+              </Link>
+            <Link href="/supplychain/manufacturing">
+                <DropdownMenuItem>Manufacturing</DropdownMenuItem>
+              </Link>
+            <Link href="/supplychain/plm">
+                <DropdownMenuItem>PLM</DropdownMenuItem>
+              </Link>
+            <Link href="/supplychain/purchase">
+                <DropdownMenuItem>Purchase</DropdownMenuItem>
+              </Link>
+            <Link href="/supplychain/maintainence">
+                <DropdownMenuItem>Maintainence</DropdownMenuItem>
+              </Link>
+            <Link href="/supplychain/quality">
+                <DropdownMenuItem>Quality</DropdownMenuItem>
+              </Link>
             </div>
           </div>
         </div>

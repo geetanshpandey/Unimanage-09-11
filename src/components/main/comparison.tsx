@@ -14,7 +14,7 @@ export default function OdooComparison() {
         <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0">
           {/* Card: With Unimanage */}
           <Card className="flex-1 mx-2 hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
-            <div className="h-full flex flex-col justify-center items-center text-center bg-gradient-to-b from-emerald-100 to-white rounded-xl">
+            <div className="h-full flex flex-col justify-center items-center text-center bg-gradient-to-b from-purple-100 to-white rounded-xl">
               <CardHeader>
                 <CardTitle className="text-emerald-800 text-2xl">With Unimanage</CardTitle>
                 <CardDescription className='text-black'>Transform your business effortlessly</CardDescription>
@@ -41,7 +41,7 @@ export default function OdooComparison() {
 
           {/* Card: Without Unimanage */}
           <Card className="flex-1 mx-2 hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
-            <div className="h-full flex flex-col justify-center items-center text-center bg-gradient-to-b from-red-100 to-white rounded-xl">
+            <div className="h-full flex flex-col justify-center items-center text-center bg-gradient-to-b from-purple-100 to-white rounded-xl">
               <CardHeader>
                 <CardTitle className="text-rose-900 text-2xl">Without Unimanage</CardTitle>
                 <CardDescription className='text-black'>Takes a lot of effort.</CardDescription>

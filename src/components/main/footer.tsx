@@ -1,19 +1,11 @@
 import Image from 'next/image';
-import { useState } from 'react';
 
 function Footer() {
-  const [language, setLanguage] = useState('English');
-
-  // Specify the type for the event parameter
-  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(event.target.value);
-  };
-
   return (
     <footer className="bg-gray-600 text-white py-10">
       <div className="container mx-auto px-4">
         {/* Main Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 ml-24">
           
           {/* Community Section */}
           <div className="flex flex-col space-y-2">
@@ -56,24 +48,10 @@ function Footer() {
           </div>
         </div>
 
-        {/* Centered Logo and Language Selector */}
+        {/* Centered Logo */}
         <div className="flex flex-col items-center text-center mt-8">
-          <Image src="/logo.png" alt="Company Logo" width={150} height={50} /> {/* Adjust size as needed */}
+          <Image src="/logo.png" alt="Company Logo" width={150} height={50} />
           <div className="text-sm mt-4">
-            <div className='mb-4'>
-              <label htmlFor="language-select" className="sr-only">Select Language</label>
-              <select
-                id="language-select"
-                value={language}
-                onChange={handleLanguageChange}
-                className="bg-gray-700 text-white border border-gray-600 rounded p-1"
-              >
-                <option value="English">English</option>
-                <option value="Spanish">Spanish</option>
-                <option value="French">French</option>
-                <option value="German">German</option>
-              </select>
-            </div>
             <p>
               Unimanage is a suite of open source business apps that cover all your company needs: CRM,<br />
               eCommerce, accounting, inventory, point of sale, project management, etc.

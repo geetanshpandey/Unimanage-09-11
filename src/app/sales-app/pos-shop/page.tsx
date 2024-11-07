@@ -10,7 +10,8 @@ const PosshopPage = () => {
         desc="POS systems streamline retail operations effectively." 
         cardHeading="POS Shop" 
         cardContent="A retail POS system automates sales processes, tracks inventory in real-time, and provides detailed transaction data. It simplifies payment processing and integrates with customer loyalty programs, enhancing the shopping experience. By offering insights into sales trends and stock levels, POS systems help shops optimize inventory management and improve decision-making. Ultimately, they enable smoother operations and better customer service."
-        videoPath="path/of/video"  
+        videoPath="path/of/video" 
+        beforeVideoImageSrc="/app/icons/accounting.ico"   
       />
     </div>
   );

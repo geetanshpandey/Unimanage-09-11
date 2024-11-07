@@ -10,7 +10,8 @@ const QualityPage = () => {
         desc="Quality management enhances standards and compliance." 
         cardHeading="Quality" 
         cardContent="Quality management platforms help businesses maintain high standards for products and services by monitoring compliance and performance. These systems provide tools for tracking quality metrics, managing audits, and implementing corrective actions. With features like document control and reporting, quality solutions enable organizations to identify areas for improvement, reduce defects, and enhance customer satisfaction. They ultimately foster a culture of quality and continuous improvement within the organization."
-        videoPath="path/of/video"  
+        videoPath="path/of/video" 
+        beforeVideoImageSrc="/app/icons/accounting.ico"   
       />
     </div>
   );

@@ -1,169 +1,184 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Menu } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
-
-// Import the AppsDropdown, IndustriesDropdown, and CommunityDropdown components
-import AppsDropdown from "./appsDropdown"; // Ensure this path is correct
-import IndustriesDropdown from "./industriesDropDown"; // Ensure this path is correct
-import CommunityDropdown from "./communityDropdown"; // Ensure this path is correct
+import { Menu, X } from "lucide-react";
+import AppsDropdown from "./appsDropdown";
+import IndustriesDropdown from "./industriesDropDown";
+import CommunityDropdown from "./communityDropdown";
 
 const Navbar = () => {
-  const [isIndustriesOpen, setIndustriesOpen] = useState(false); // For Industries dropdown
-  const [isCommunityOpen, setCommunityOpen] = useState(false); // For Community dropdown
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Disable body scrolling when the mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'; // Disable scrolling
+    } else {
+      document.body.style.overflow = 'auto'; // Enable scrolling
+    }
+  }, [isMobileMenuOpen]);
+
+  // Close the mobile menu when the screen size increases past the mobile breakpoint
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) { // Mobile breakpoint (adjust if needed)
+        setMobileMenuOpen(false); // Close the menu if the screen size is larger than mobile
+      }
+    };
+
+    // Attach resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <nav className="flex items-center justify-between p-2 bg-gray-50 text-black fixed w-full top-0 z-50">
-      {/* Logo Image */}
-      <div className="flex items-center pl-4">
-        <Image
-          src="/logo.png"
-          alt="Brand Logo"
-          width={125}
-          height={110}
-          className="transform scale-125"
-        />
-      </div>
-
-      {/* Desktop Navigation Links */}
-      <div className="hidden md:flex space-x-6">
-        <div className="flex items-center hover:text-gray-600">
-          <AppsDropdown />
-        </div>
-        <div className="flex items-center hover:text-gray-600">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="link" onClick={() => setIndustriesOpen(!isIndustriesOpen)}>
-                Industries
-                <ChevronDown className="ml-2 h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            {isIndustriesOpen && <IndustriesDropdown />} {/* Render IndustriesDropdown */}
-          </DropdownMenu>
-        </div>
-        <div className="flex items-center hover:text-gray-600">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="link" onClick={() => setCommunityOpen(!isCommunityOpen)}>
-                Community
-                <ChevronDown className="ml-2 h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            {isCommunityOpen && <CommunityDropdown />} {/* Render CommunityDropdown */}
-          </DropdownMenu>
-        </div>
-        <div className="flex items-center hover:text-gray-600">
-          <a href="#" className="hover:underline">
-            Pricing
-          </a>
-        </div>
-        <div className="flex items-center hover:text-gray-600">
-          <a href="#" className="hover:underline">
-            Contact
-          </a>
+    <div>
+      {/* Layout wrapper that hides content when the mobile menu is open */}
+      <div
+        className={`${
+          isMobileMenuOpen ? "hidden" : "" // Hide background content when mobile menu is open
+        }`}
+      >
+        {/* Main Content Layout (Background or other components) */}
+        <div className="your-main-layout">
+          <h1>Your Page Content</h1>
+          <p>Other layout components...</p>
         </div>
       </div>
 
-      {/* Buttons for Sign In and Try It Free */}
-      <div className="hidden md:flex space-x-4">
-        <Button
-          variant="outline"
-          className="text-black hover:bg-black hover:text-slate-100"
-        >
-          Sign In
-        </Button>
-        <Button variant="outline" className="text-white bg-pink-800 hover:bg-purple-400">
-          Try It Free
-        </Button>
-      </div>
+      {/* Navbar */}
+      <nav className="flex items-center justify-between p-2 bg-gray-50 text-black fixed w-full top-0 z-50">
+        {/* Logo Image */}
+        <div className="flex items-center pl-4">
+          <Image
+            src="/logo.png"
+            alt="Brand Logo"
+            width={125}
+            height={110}
+            className="transform scale-125"
+          />
+        </div>
 
-      {/* Mobile Hamburger Menu */}
-      <div className="md:hidden">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost">
-              <Menu className="h-6 w-6" />
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex space-x-6">
+          <div className="flex items-center hover:text-gray-600">
+            <AppsDropdown />
+          </div>
+          <div className="flex items-center hover:text-gray-600">
+            <IndustriesDropdown />
+          </div>
+          <div className="flex items-center hover:text-gray-600">
+            <CommunityDropdown />
+          </div>
+          <div className="flex items-center hover:text-gray-600">
+            <a href="#" className="hover:underline">
+              Pricing
+            </a>
+          </div>
+          <div className="flex items-center hover:text-gray-600">
+            <a href="#" className="hover:underline">
+              Contact
+            </a>
+          </div>
+        </div>
+
+        {/* Buttons for Sign In and Try It Free */}
+        <div className="hidden md:flex space-x-4">
+          <div className="relative z-10 group">
+            <Button 
+              variant="outline" 
+              className="px-6 py-3 text-black w-full group-hover:bg-gray-300 transition-colors duration-200"
+            >
+              Sign In
             </Button>
-          </DropdownMenuTrigger>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gray-200 transition-opacity duration-200 rounded-lg" />
+          </div>
+          <div className="relative z-10 group">
+            <Button 
+              variant="outline" 
+              className="px-6 py-3 text-white bg-black w-full group-hover:bg-gray-300 hover:text-black transition-colors duration-200"
+            >
+              Try It Free
+            </Button>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black transition-opacity duration-200 rounded-lg" />
+          </div>
+        </div>
 
-          {/* Mobile Dropdown with 2 Items per Row */}
-          <DropdownMenuContent className="w-full max-w-xs mx-auto p-2 bg-white rounded-lg shadow-md grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {/* Dropdown Item: Apps */}
-            <DropdownMenuItem>
-              <div className="flex items-center w-full">
-                <AppsDropdown />
+        {/* Mobile Hamburger Menu */}
+        <div className="md:hidden">
+          <Button variant="ghost" onClick={() => setMobileMenuOpen(true)}>
+            <Menu className="h-6 w-6" />
+          </Button>
+        </div>
+
+        {/* Full-Screen Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <>
+            {/* Full-Screen Overlay (with dark background) */}
+            <div
+              className="fixed inset-0 bg-black opacity-50 z-40"
+              onClick={() => setMobileMenuOpen(false)} // Close the menu if overlay is clicked
+            ></div>
+
+            <div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-50 md:hidden">
+              {/* Close Button at the top-right corner */}
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="absolute top-4 right-4 text-gray-600 hover:text-black"
+              >
+                <X className="h-8 w-8" />
+              </button>
+
+              <ul className="flex flex-col items-center gap-8 text-lg -mt-40 z-50">
+                <li className="relative top-[-20px] hover:text-gray-600">
+                  <AppsDropdown />
+                </li>
+                {/* <li className="hover:text-gray-600 -mt-8">
+                  <IndustriesDropdown />
+                </li>
+                <li className="hover:text-gray-600">
+                  <CommunityDropdown />
+                </li> */}
+                <li className="hover:text-gray-600 text-sm">
+                  <a href="#">Pricing</a>
+                </li>
+                <li className="hover:text-gray-600 text-sm">
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+
+              <div className="mt-8 space-y-4 w-full px-8">
+                <div className="relative z-10">
+                  <Button 
+                    variant="outline" 
+                    className="w-full text-black hover:bg-gray-300 hover:text-black relative z-20"
+                  >
+                    Sign In
+                  </Button>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gray-200 transition-opacity duration-200 rounded-lg" />
+                </div>
+                <div className="relative z-10 group">
+                  <Button 
+                    variant="outline" 
+                    className="w-full px-6 py-3 text-white bg-black group-hover:bg-gray-300 hover:text-black transition-colors duration-200"
+                  >
+                    Try It Free
+                  </Button>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black transition-opacity duration-200 rounded-lg" />
+                </div>
               </div>
-            </DropdownMenuItem>
-
-            {/* Dropdown Item: Industries */}
-            <DropdownMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="w-full justify-start">
-                    Industries
-                    <ChevronDown className="ml-2 h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-full max-w-xs mx-auto p-2 bg-white rounded-lg shadow-md mt-1">
-                  <IndustriesDropdown /> {/* Show dropdown for Industries */}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </DropdownMenuItem>
-
-            {/* Dropdown Item: Community */}
-            <DropdownMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="w-full justify-start">
-                    Communities
-                    <ChevronDown className="ml-2 h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-full max-w-xs mx-auto p-2 bg-white rounded-lg shadow-md mt-1">
-                  <CommunityDropdown /> {/* Show dropdown for Communities */}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </DropdownMenuItem>
-
-            {/* Static Links */}
-            <DropdownMenuItem>
-              <a href="#">Pricing</a>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <a href="#">Contact</a>
-            </DropdownMenuItem>
-
-            {/* Sign In Button */}
-            <DropdownMenuItem>
-              <Button
-                variant="outline"
-                className="text-black hover:bg-black hover:text-slate-100 w-full"
-              >
-                Sign In
-              </Button>
-            </DropdownMenuItem>
-
-            {/* Try It Free Button */}
-            <DropdownMenuItem>
-              <Button
-                variant="outline"
-                className="text-white bg-pink-800 hover:bg-pink-600 w-full hover:text-white"
-              >
-                Try It Free
-              </Button>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-    </nav>
+            </div>
+          </>
+        )}
+      </nav>
+    </div>
   );
 };
-export default Navbar; 
+
+export default Navbar;

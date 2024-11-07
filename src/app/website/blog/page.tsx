@@ -11,6 +11,7 @@ const BlogPage = () => {
     cardHeading="Blog" 
     cardContent="A blog is a powerful tool for businesses to communicate with their audience, share industry knowledge, and showcase expertise. Regular blog posts can improve SEO rankings, drive traffic to a website, and foster customer engagement. With the right strategy, a blog builds credibility, strengthens brand identity, and encourages interaction through comments and social sharing."
     videoPath="path/of/video"  
+    beforeVideoImageSrc="/app/icons/accounting.ico"  
       />
     </div>
   );

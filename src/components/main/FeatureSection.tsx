@@ -4,12 +4,12 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Image from 'next/image';
-import AccountingIcon from '@/app/icons/accounting.ico';
+import AccountingIcon from '@/app/icons/accounting.png';
 import CRMIcon from '@/app/icons/crm.png';
 import SubscriptionsIcon from '@/app/icons/Subscription.png';
-import InventoryIcon from '@/app/icons/Inventory.ico';
-import SalesIcon from '@/app/icons/Sales.ico';
-import HRIcon from '@/app/icons/HR.ico';
+import InventoryIcon from '@/app/icons/Inventory.png';
+import SalesIcon from '@/app/icons/Sales.png';
+import HRIcon from '@/app/icons/HR.png';
 
 const features = [
   {
@@ -56,7 +56,7 @@ export default function FeatureSection() {
         {/* Feature Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <Card key={index} className="bg-gradient-to-b from-purple-100 to-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card key={index} className="bg-gradient-to-b from-gray-300 to-white shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
                 <div className="w-12 h-12 mb-4 mx-auto">
                   <Image src={feature.iconSrc} alt={feature.title} width={48} height={48} />

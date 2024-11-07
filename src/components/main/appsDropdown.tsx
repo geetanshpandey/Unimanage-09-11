@@ -1,166 +1,146 @@
-import { useState, useEffect } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const AppsDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
+  // Close dropdown when clicking outside
   useEffect(() => {
-    if (isOpen) {
-      // Add padding to body to compensate for scrollbar
-      const scrollbarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-      document.body.style.overflow = "hidden"; // Prevent scrolling
-    } else {
-      // Delay the reset of body padding and overflow to avoid layout shift before animation ends
-      setTimeout(() => {
-        document.body.style.paddingRight = "";
-        document.body.style.overflow = "";
-      }, 300); // Adjust the delay based on the dropdown animation duration (e.g., 300ms)
-    }
-
-    // Cleanup on unmount
-    return () => {
-      document.body.style.paddingRight = "";
-      document.body.style.overflow = "";
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
     };
-  }, [isOpen]);
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Set isMobile based on screen width
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); 
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleDropdown = (e: React.MouseEvent) => {
+    e.stopPropagation();
+
+    if (isOpen) {
+      setIsOpen(false);
+    } else {
+      setIsTransitioning(true);
+      setIsOpen(true);
+    }
+  };
 
   return (
-    <DropdownMenu onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          className={`flex items-center focus:outline-none focus:ring-0 ${
-            isOpen ? "border-b-2 border-blue-500" : ""
-          }`}
-        >
-          Apps
-          <ChevronDown className="ml-2 h-4 w-4" />
-        </Button>
-      </DropdownMenuTrigger>
-
-      {/* Dropdown Content */}
-      <DropdownMenuContent
-        className="w-full max-w-4xl mt-2 bg-white border border-gray-200 shadow-lg rounded-md p-4 z-50 overflow-y-auto max-h-[400px]"
-        align="start"
-        sideOffset={10}
+    <div className="relative inline-block text-left">
+      <button
+        ref={buttonRef}
+        onClick={toggleDropdown}
+        className={`text-gray-900 bg-gray-50 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center w-full sm:w-auto ${
+          isMobile ? "w-full" : ""
+        }`}
       >
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {" "}
-          {/* Responsive grid */}
-          {/* Finance Section */}
-          <div>
-            <h3 className="font-semibold text-gray-700">FINANCE</h3>
-            <hr className="my-2 border-gray-300" />
-            <div className="space-y-1">
-              <Link href="/finance/accounting">
-                <DropdownMenuItem>Accounting</DropdownMenuItem>
-              </Link>
-              <Link href="/finance/invoicing">
-                <DropdownMenuItem>Invoicing</DropdownMenuItem>
-              </Link>
-              <Link href="/finance/expenses">
-                <DropdownMenuItem>Expenses</DropdownMenuItem>
-              </Link>
-              <Link href="/finance/spreadsheet">
-                <DropdownMenuItem>Spreadsheet (BI)</DropdownMenuItem>
-              </Link>
-              <Link href="/finance/document">
-                <DropdownMenuItem>Documents</DropdownMenuItem>
-              </Link>
-              <Link href="/finance/sign">
-                <DropdownMenuItem>Sign</DropdownMenuItem>
-              </Link>
+        {isMobile ? "Our Apps" : "Apps"}
+        <ChevronDown className="ml-2 h-4 w-4" />
+      </button>
+
+      <div
+        ref={dropdownRef}
+        className={`absolute left-1/2 transform -translate-x-1/2 mt-2 w-full sm:w-[80vw] md:w-[800px] bg-white shadow-lg rounded-md p-6 z-50 ${
+          isOpen
+            ? "opacity-100 translate-y-0 visibility-visible scale-100 transition-all duration-[700ms] ease-in-out"
+            : "opacity-0 translate-y-4 visibility-hidden scale-95"
+        }`}
+        onTransitionEnd={() => {
+          if (!isOpen) {
+            setIsTransitioning(false);
+          }
+        }}
+        style={{
+          maxHeight: "80vh",
+          overflowY: "auto",
+        }}
+      >
+        {isOpen && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 z-50">
+            {/* Finance Section */}
+            <div className="w-full z-50">
+              <h3 className="font-semibold text-teal-700">FINANCE</h3>
+              <hr className="my-2 border-teal-200" />
+              <ul className="space-y-1 text-gray-700">
+                <li><Link href="/finance/accounting">Accounting</Link></li>
+                <li><Link href="/finance/invoicing">Invoicing</Link></li>
+                <li><Link href="/finance/expenses">Expenses</Link></li>
+                <li><Link href="/finance/spreadsheet">Spreadsheet (BI)</Link></li>
+                <li><Link href="/finance/documents">Documents</Link></li>
+                <li><Link href="/finance/sign">Sign</Link></li>
+              </ul>
+            </div>
+
+            {/* Sales Section */}
+            <div className="w-full z-50">
+              <h3 className="font-semibold text-red-600">SALES</h3>
+              <hr className="my-2 border-red-200" />
+              <ul className="space-y-1 text-gray-700">
+                <li><Link href="/sales-app/crm">CRM</Link></li>
+                <li><Link href="/sales-app/sales">Sales</Link></li>
+                <li><Link href="/sales-app/pos-shop">POS Shop</Link></li>
+                <li><Link href="/sales-app/pos-res">POS Restaurant</Link></li>
+                <li><Link href="/sales-app/subscription">Subscriptions</Link></li>
+                <li><Link href="/sales-app/rental">Rental</Link></li>
+              </ul>
+            </div>
+
+            {/* Websites Section */}
+            <div className="w-full z-50">
+              <h3 className="font-semibold text-blue-600">WEBSITES</h3>
+              <hr className="my-2 border-blue-200" />
+              <ul className="space-y-1 text-gray-700">
+                <li><Link href="/website/builder">Website Builder</Link></li>
+                <li><Link href="/website/ecommerce">eCommerce</Link></li>
+                <li><Link href="/website/blog">Blog</Link></li>
+                <li><Link href="/website/forum">Forum</Link></li>
+                <li><Link href="/website/livechat">Live Chat</Link></li>
+                <li><Link href="/website/elearning">eLearning</Link></li>
+              </ul>
+            </div>
+
+            {/* Supply Chain Section */}
+            <div className="w-full z-50">
+              <h3 className="font-semibold text-purple-700">SUPPLY CHAIN</h3>
+              <hr className="my-2 border-purple-200" />
+              <ul className="space-y-1 text-gray-700">
+                <li><Link href="/supplychain/inventory">Inventory</Link></li>
+                <li><Link href="/supplychain/manufacturing">Manufacturing</Link></li>
+                <li><Link href="/supplychain/plm">PLM</Link></li>
+                <li><Link href="/supplychain/purchase">Purchase</Link></li>
+                <li><Link href="/supplychain/maintenance">Maintenance</Link></li>
+                <li><Link href="/supplychain/quality">Quality</Link></li>
+              </ul>
             </div>
           </div>
-          {/* Sales Section */}
-          <div>
-            <h3 className="font-semibold text-gray-700">SALES</h3>
-            <hr className="my-2 border-gray-300" />
-            <div className="space-y-1">
-            <Link href="/sales-app/crm">
-                <DropdownMenuItem>CRM</DropdownMenuItem>
-              </Link>
-            <Link href="/sales-app/sales">
-                <DropdownMenuItem>Sales</DropdownMenuItem>
-              </Link>
-            <Link href="/sales-app/pos-shop">
-                <DropdownMenuItem>POS Shop</DropdownMenuItem>
-              </Link>
-            <Link href="/sales-app/pos-res">
-                <DropdownMenuItem>POS Restraunt</DropdownMenuItem>
-              </Link>
-            <Link href="/sales-app/subscription">
-                <DropdownMenuItem>Subscription</DropdownMenuItem>
-              </Link>
-            <Link href="/sales-app/rental">
-                <DropdownMenuItem>Rental</DropdownMenuItem>
-              </Link>
-            </div>
-          </div>
-          {/* Websites Section */}
-          <div>
-            <h3 className="font-semibold text-gray-700">WEBSITES</h3>
-            <hr className="my-2 border-gray-300" />
-            <div className="space-y-1">
-              {/* FOR GEETANSH LINK ERROR FIX */}
-              <Link href="/website/builder">
-                <DropdownMenuItem>Website Builder</DropdownMenuItem>
-              </Link>
-              <Link href="/website/eccomerce">
-                <DropdownMenuItem>eCommerce</DropdownMenuItem>
-              </Link>
-              <Link href="/website/blog">
-                <DropdownMenuItem>Blog</DropdownMenuItem>
-              </Link>
-              <Link href="/website/forum">
-                <DropdownMenuItem>Forum</DropdownMenuItem>
-              </Link>
-              <Link href="/website/livechat">
-                <DropdownMenuItem>Live-Chat</DropdownMenuItem>
-              </Link>
-              <Link href="/website/elearning">
-                <DropdownMenuItem>eLearning</DropdownMenuItem>
-              </Link>
-            </div>
-          </div>
-          {/* Supply Chain Section */}
-          <div>
-            <h3 className="font-semibold text-gray-700">SUPPLY CHAIN</h3>
-            <hr className="my-2 border-gray-300" />
-            <div className="space-y-1">
-            <Link href="/supplychain/inventory">
-                <DropdownMenuItem>Inventory</DropdownMenuItem>
-              </Link>
-            <Link href="/supplychain/manufacturing">
-                <DropdownMenuItem>Manufacturing</DropdownMenuItem>
-              </Link>
-            <Link href="/supplychain/plm">
-                <DropdownMenuItem>PLM</DropdownMenuItem>
-              </Link>
-            <Link href="/supplychain/purchase">
-                <DropdownMenuItem>Purchase</DropdownMenuItem>
-              </Link>
-            <Link href="/supplychain/maintainence">
-                <DropdownMenuItem>Maintainence</DropdownMenuItem>
-              </Link>
-            <Link href="/supplychain/quality">
-                <DropdownMenuItem>Quality</DropdownMenuItem>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        )}
+      </div>
+    </div>
   );
 };
 

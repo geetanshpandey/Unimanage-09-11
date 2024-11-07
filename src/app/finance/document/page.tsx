@@ -10,7 +10,8 @@ const DocumentPage = () => {
         desc="Documents centralize file management, enhancing collaboration and efficiency for businesses." 
         cardHeading="Documents" 
         cardContent="Documents provide businesses with a centralized platform for organizing, storing, and managing critical files. By streamlining access to important information, businesses can improve collaboration, ensure data security, and enhance overall operational efficiency. With effective document management, teams can work more productively, reduce clutter, and maintain compliance with ease."
-        videoPath="path/of/video"  
+        videoPath="path/of/video" 
+        beforeVideoImageSrc="/app/icons/accounting.ico"   
       />
     </div>
   );

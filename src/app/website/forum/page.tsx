@@ -11,6 +11,7 @@ const ForumPage = () => {
     cardHeading="Forum" 
     cardContent="Forums allow businesses to build interactive spaces where customers and users can exchange ideas, ask questions, and share solutions. By fostering community engagement, forums promote collaboration and loyalty while offering valuable insights into customer needs. With moderation tools and topic-based discussions, forums become a hub for continuous interaction and support, enhancing brand credibility."
     videoPath="path/of/video"  
+    beforeVideoImageSrc="/app/icons/accounting.ico"  
       />
     </div>
   );

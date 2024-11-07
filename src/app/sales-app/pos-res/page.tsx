@@ -10,7 +10,8 @@ const PosresPage = () => {
         desc="POS systems improve restaurant operations efficiency" 
         cardHeading="POS Restraunt" 
         cardContent="A restaurant POS system simplifies operations by managing orders, processing payments, and tracking inventory in real-time. It helps streamline communication between the kitchen and waitstaff, reducing errors and wait times. With integrated features for managing reservations, promotions, and customer preferences, POS systems optimize service quality and boost operational efficiency. Ultimately, they help restaurants deliver faster, more personalized dining experiences."
-        videoPath="path/of/video"  
+        videoPath="path/of/video" 
+        beforeVideoImageSrc="/app/icons/accounting.ico"   
       />
     </div>
   );

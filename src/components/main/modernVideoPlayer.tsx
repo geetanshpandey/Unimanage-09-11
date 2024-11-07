@@ -5,7 +5,11 @@ import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute, FaExpand, FaCompress } from 
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 
-export default function ModernVideoPlayer() {
+interface ModernVideoPlayer {
+  videoSrc:any
+}
+
+export default function ModernVideoPlayer({videoSrc}:ModernVideoPlayer) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);

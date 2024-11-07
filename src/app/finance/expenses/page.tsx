@@ -10,7 +10,8 @@ const ExpensePage = () => {
         desc="Expenses enable businesses to manage and optimize their financial resources." 
         cardHeading="Expenses" 
         cardContent="Managing expenses effectively is crucial for any business’s success. By keeping track of expenditures, organizations can maintain budget discipline and avoid overspending. This process also aids in identifying unnecessary costs, allowing for better resource allocation. Ultimately, efficient expense management leads to improved profitability and financial stability."
-        videoPath="path/of/video"  
+        videoPath="path/of/video" 
+        beforeVideoImageSrc="/app/icons/accounting.ico"   
       />
     </div>
   );

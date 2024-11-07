@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const BusinessAppsSection = () => {
   return (
-    <section className="bg-gradient-to-b from-orange-100 to-white-100 bg-white py-16">
+    <section className="bg-gradient-to-b from-white via-gray-200 to-white bg-white py-16">
       <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Title Section */}
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mt-4 mb-16">
@@ -27,7 +27,7 @@ const BusinessAppsSection = () => {
           <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
             <div className="w-16 h-16 rounded-full overflow-hidden">
               <Image
-                src="/hacker.png" // Replace with the actual image path
+                src="/businessman.png" // Replace with the actual image path
                 alt="Person"
                 width={64}
                 height={64}

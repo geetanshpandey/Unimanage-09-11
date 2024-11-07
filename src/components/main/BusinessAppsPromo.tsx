@@ -9,7 +9,7 @@ const BusinessAppsSection = () => {
           Every great achievement starts with a simple, <span className="text-orange-400">well chosen tool.</span>
         </h2>
         <p className="text-gray-600 text-lg mb-8 text-grey-500 font-bold">
-          Looking to upgrade? There's an app that can help.<br />
+          Looking to upgrade? There&apos;s an app that can help.<br />
           <span className="text-pink-700">Every challenge has a solution—just one app away.</span>
         </p>
 
@@ -39,7 +39,7 @@ const BusinessAppsSection = () => {
 
           {/* Quote Text */}
           <blockquote className="text-gray-700 italic font-medium text-lg">
-            "If you simplify everything, you can do anything!"
+          &quot;If you simplify everything, you can do anything!&quot;
           </blockquote>
           <p className="text-gray-500 text-sm mt-2">
             - Ratan Tata, former Chairman of Tata Group

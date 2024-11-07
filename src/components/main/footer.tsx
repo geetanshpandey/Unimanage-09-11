@@ -57,7 +57,7 @@ function Footer() {
               eCommerce, accounting, inventory, point of sale, project management, etc.
             </p>
             <p>
-              Unimanage's unique value proposition is to be at the same time very easy to use and fully integrated.
+              Unimanage&apos;s unique value proposition is to be at the same time very easy to use and fully integrated.
             </p>
           </div>
         </div>

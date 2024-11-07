@@ -134,7 +134,7 @@ const Global = ({
 
         <div className="flex justify-center mb-4">
           <button className="bg-pink-800 hover:bg-pink-600 text-white px-16 py-4 rounded-lg text-xl mt-8">
-            Start now - It's free
+            Start now - It&apos;s free
           </button>
         </div>
       </div>

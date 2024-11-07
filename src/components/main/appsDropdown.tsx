@@ -35,7 +35,7 @@ const AppsDropdown = () => {
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); 
+    handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -51,7 +51,7 @@ const AppsDropdown = () => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div className={`relative inline-block text-left ${isOpen && isMobile ? "backdrop-blur-sm" : ""}`}>
       <button
         ref={buttonRef}
         onClick={toggleDropdown}
@@ -59,7 +59,7 @@ const AppsDropdown = () => {
           isMobile ? "w-full" : ""
         }`}
       >
-        {isMobile ? "Our Apps" : "Apps"}
+        {isMobile ? "Our Applications" : "Apps"}
         <ChevronDown className="ml-2 h-4 w-4" />
       </button>
 
@@ -135,6 +135,19 @@ const AppsDropdown = () => {
                 <li><Link href="/supplychain/purchase">Purchase</Link></li>
                 <li><Link href="/supplychain/maintenance">Maintenance</Link></li>
                 <li><Link href="/supplychain/quality">Quality</Link></li>
+              </ul>
+            </div>
+            <div className="w-full z-50">
+              <h3 className="font-semibold text-purple-700">Productivity</h3>
+              <hr className="my-2 border-purple-200" />
+              <ul className="space-y-1 text-gray-700">
+                <li><Link href="/supplychain/inventory">Zoom</Link></li>
+                <li><a href="https://notion-convex.vercel.app" target="_blank">
+                  Journalize
+                </a>
+                </li>
+                <li><Link href="/supplychain/plm">Slack</Link></li>
+                <li><Link href="/supplychain/purchase">Notice</Link></li>
               </ul>
             </div>
           </div>

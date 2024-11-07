@@ -40,7 +40,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 mb-8">
             <button className="bg-pink-800 text-white px-6 py-3 rounded-lg w-full md:w-auto hover:bg-purple-400 hover:text-black">
-              Start now - It's free
+              Start now - It&apos;s free
             </button>
             <button className="bg-gray-300 text-gray-800 px-6 py-3 rounded-lg w-full md:w-auto hover:bg-gray-800 hover:text-gray-100">
               Schedule a demo
@@ -142,7 +142,7 @@ export default function Home() {
         {/* Start Now Button */}
         <div className="flex justify-center mb-4">
           <button className="bg-pink-800 hover:bg-pink-600 text-white px-16 py-4 rounded-lg text-xl mt-8">
-            Start now - It's free
+            Start now - It&apos;s free
           </button>
         </div>
       </div>

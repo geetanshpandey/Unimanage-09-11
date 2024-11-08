@@ -11,7 +11,8 @@ const LivechatPage = () => {
     cardHeading="Livechat" 
     cardContent="Live chat provides businesses with a direct and immediate way to communicate with customers, offering instant responses to inquiries. It enhances customer service by addressing concerns in real-time, reducing response times, and increasing satisfaction. With features like automated responses and chatbots, live chat also allows businesses to handle multiple queries efficiently, ensuring seamless communication and improved customer experiences."
     videoPath="path/of/video" 
-    beforeVideoImageSrc="/app/icons/accounting.ico" 
+    beforeVideoImageSrc="/download.jpeg" 
+    title="Live Chat"  
       />
     </div>
   );

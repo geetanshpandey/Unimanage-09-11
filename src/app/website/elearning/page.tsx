@@ -11,7 +11,8 @@ const ElearningPage = () => {
     cardHeading="E-learning" 
     cardContent="E-learning platforms provide businesses with the tools to create and distribute online courses, fostering professional development and continuous learning. They offer features such as multimedia integration, quizzes, and progress tracking, making learning more interactive and accessible. With scalable solutions and remote access, e-learning helps businesses upskill employees, train clients, and offer educational content to a global audience."
     videoPath="path/of/video"
-    beforeVideoImageSrc="/app/icons/accounting.ico"    
+    beforeVideoImageSrc="/download.jpeg"  
+    title="E-Learning"    
       />
     </div>
   );

@@ -11,7 +11,8 @@ const SpreadsheetPage = () => {
         cardHeading="Spreadsheet(BI)" 
         cardContent="Spreadsheets are essential for managing and analyzing large amounts of data in a structured way. They enable businesses to create detailed reports, track performance metrics, and perform complex calculations. With user-friendly interfaces and versatile functionalities, spreadsheets allow for quick adjustments and real-time updates. Ultimately, they empower teams to make informed decisions based on accurate data insights."
         videoPath="path/of/video"  
-        beforeVideoImageSrc="/app/icons/accounting.ico"  
+        beforeVideoImageSrc="/download.jpeg"  
+        title="Spreadsheet"  
       />
     </div>
     

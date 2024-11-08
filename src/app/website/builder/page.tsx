@@ -11,7 +11,8 @@ const BuilderPage = () => {
         cardHeading="Website Builder" 
         cardContent="Website builders simplify the process of designing and launching a website, providing user-friendly interfaces and drag-and-drop tools. These platforms offer customizable templates, enabling businesses to create a unique online presence that reflects their brand. With built-in SEO tools, responsive designs, and integrated features, website builders allow businesses to engage customers effectively and scale their digital presence."
         videoPath="path/of/video"  
-        beforeVideoImageSrc="/app/icons/accounting.ico"  
+        beforeVideoImageSrc="/download.jpeg"  
+        title="Website Builder"  
       />
     </div>
   );

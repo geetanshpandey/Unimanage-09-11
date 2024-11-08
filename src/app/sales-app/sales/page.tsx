@@ -11,7 +11,8 @@ const SalesPage = () => {
         cardHeading="Sales" 
         cardContent="Sales management platforms enable businesses to streamline the sales process, from lead generation to closing deals. These systems provide tools for tracking sales performance, forecasting revenue, and managing customer relationships. With features like automated follow-ups, reporting, and analytics, sales platforms help teams identify opportunities, optimize strategies, and drive revenue growth. They ultimately enhance collaboration and improve overall sales effectiveness."
         videoPath="path/of/video" 
-        beforeVideoImageSrc="/app/icons/accounting.ico"   
+        beforeVideoImageSrc="/download.jpeg"  
+        title="Sales"   
       />
     </div>
   );

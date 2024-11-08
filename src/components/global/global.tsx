@@ -32,7 +32,8 @@ interface GlobalProps {
   cardHeading: string;
   cardContent: string;
   videoPath: string;
-  beforeVideoImageSrc: string; // New prop for global image path before the video
+  beforeVideoImageSrc: string; 
+  title:String// New prop for global image path before the video
 }
 
 const Global = ({
@@ -42,7 +43,8 @@ const Global = ({
   cardHeading,
   cardContent,
   videoPath,
-  beforeVideoImageSrc, // Accepting new prop here
+  beforeVideoImageSrc,
+  title, // Accepting new prop here
 }: GlobalProps) => {
   const iconSrc = icons.find(icon => icon.name === cardHeading)?.src;
 
@@ -51,13 +53,15 @@ const Global = ({
       <Navbar />
 
       <div className="mt-40 bg-color-gray-50 min-h-screen flex flex-col items-center justify-center bg-white p-6 md:p-0 relative">
-        
+      <div className="text-4xl md:text-5xl font-semibold mb-16 -mt-20 text-transparent bg-clip-text bg-gradient-to-r from-pink-800 to-indigo-500 drop-shadow-lg">
+        {title} <span>With Unimanage</span>
+      </div>
         {/* Heading Section */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-mono font-bold text-black mb-8 flex items-center justify-center">
+          <h1 className="text-3xl md:text-3xl font-mono font-bold text-black mb-8 flex items-center justify-center">
             {header}
           </h1>
-          <h1 className="text-3xl md:text-4xl font-mono font-bold text-black mb-8 flex items-center justify-center">
+          <h1 className="text-3xl md:text-3xl font-mono font-bold text-black mb-8 flex items-center justify-center">
             <span className="text-orange-500"> {headerpart}</span>
           </h1>
           <p className="text-base md:text-lg font-mono text-gray-700 mb-10">

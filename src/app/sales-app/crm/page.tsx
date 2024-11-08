@@ -11,7 +11,8 @@ const CrmPage = () => {
         cardHeading="CRM" 
         cardContent="Customer Relationship Management (CRM) platforms enable businesses to centralize customer data, track interactions, and manage leads effectively. By automating sales, marketing, and support tasks, CRM systems boost productivity and ensure personalized customer experiences. With analytics and reporting tools, businesses gain insights into customer behavior, leading to better decision-making and improved customer retention."
         videoPath="path/of/video"  
-        beforeVideoImageSrc="/app/icons/accounting.ico"  
+        beforeVideoImageSrc="/download.jpeg"  
+        title="CRM"  
       />
     </div>
   );

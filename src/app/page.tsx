@@ -1,27 +1,19 @@
+
 'use client';
+import { useRouter } from 'next/navigation'; // Correct import for useRouter
 import BusinessAppsSection from '@/components/main/BusinessAppsPromo';
 import Navbar from '@/components/main/navbar';
 import FeatureSection from '@/components/main/FeatureSection';
 import Footer from '@/components/main/footer';
 import OdooComparison from '@/components/main/comparison';
 import Image from 'next/image'; // Import next/image for optimized image handling
-import { Button } from "@/components/ui/button";
 import AppIconsSection from '@/components/main/appsIconsSection';
 import ModernVideoPlayer from '@/components/main/modernVideoPlayer';
+import Link from 'next/link';
 
-// Import your logo and icons here (ensure paths are correct)
-import Logo from '@/app/icons/logo.png';
-import AccountingIcon from '@/app/icons/accounting.ico';
-import KnowledgeIcon from '@/app/icons/Knowledge.ico';
-// ... (other icon imports)
-
-const icons = [
-  { name: 'Accounting', src: AccountingIcon },
-  { name: 'Knowledge', src: KnowledgeIcon },
-  // ... (other icons)
-];
 
 export default function Home() {
+  const router = useRouter(); // Assign useRouter() to router
   return (
     <div>
       {/* Navbar */}
@@ -39,9 +31,13 @@ export default function Home() {
             Simple, efficient, yet affordable!
           </p>
           <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 mb-8">
-            <button className="bg-pink-800 text-white px-6 py-3 rounded-lg w-full md:w-auto hover:bg-purple-400 hover:text-black">
-              Start now - It&apos;s free
-            </button>
+            <Link href="/dpage/check" passHref>
+              <button className="bg-pink-800 text-white px-6 py-3 rounded-lg w-full md:w-auto hover:bg-purple-400 hover:text-black">
+                Start now - It's free
+              </button>
+            </Link>
+
+
             <button className="bg-gray-300 text-gray-800 px-6 py-3 rounded-lg w-full md:w-auto hover:bg-gray-800 hover:text-gray-100">
               Schedule a demo
             </button>

@@ -11,7 +11,8 @@ const ManufacturingPage = () => {
         cardHeading="Manfacturing" 
         cardContent="Manufacturing management platforms enable businesses to oversee production workflows, manage inventory, and ensure quality control. These systems provide tools for tracking materials, scheduling production runs, and analyzing performance metrics. With features like real-time monitoring and reporting, manufacturing solutions help organizations identify inefficiencies, reduce waste, and improve overall productivity. They ultimately enhance operational efficiency and support better decision-making in the manufacturing process."
         videoPath="path/of/video" 
-        beforeVideoImageSrc="/app/icons/accounting.ico"   
+        beforeVideoImageSrc="/download.jpeg"   
+        title="Manufacturing"  
       />
     </div>
   );

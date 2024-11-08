@@ -11,7 +11,8 @@ const MaintainencePage = () => {
         cardHeading="Maintainence" 
         cardContent="Maintenance management platforms enable businesses to schedule and track maintenance activities, ensuring assets operate optimally. These systems provide tools for monitoring equipment performance, managing work orders, and tracking maintenance history. With features like automated reminders and reporting, maintenance solutions help organizations minimize unexpected breakdowns and extend asset lifespans. They ultimately improve operational efficiency, reduce costs, and enhance overall productivity."
         videoPath="path/of/video"  
-        beforeVideoImageSrc="/app/icons/accounting.ico"  
+        beforeVideoImageSrc="/download.jpeg"  
+        title="maintenance"  
       />
     </div>
   );

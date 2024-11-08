@@ -11,7 +11,8 @@ const EccomercePage = () => {
         cardHeading="E-commerce" 
         cardContent="Ecommerce platforms allow businesses to set up online stores, manage inventory, process payments, and handle shipping seamlessly. They provide tools for marketing, customer management, and analytics, helping businesses grow their online sales. With features like mobile responsiveness and secure transactions, ecommerce platforms make it easy for companies to scale their operations and reach a broader audience."
         videoPath="path/of/video" 
-        beforeVideoImageSrc="/app/icons/accounting.ico"   
+        beforeVideoImageSrc="/download.jpeg"  
+        title="Eccomerce"   
       />
     </div>
   );

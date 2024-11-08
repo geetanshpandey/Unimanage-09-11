@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 function Footer() {
   return (
-    <footer className="bg-gray-600 text-white py-10">
+    <footer className="bg-neutral-900 text-white py-10">
       <div className="container mx-auto px-4">
         {/* Main Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 ml-24">

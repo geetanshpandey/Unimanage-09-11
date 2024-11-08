@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import AppsDropdown from "./appsDropdown";
 import IndustriesDropdown from "./industriesDropDown";
 import CommunityDropdown from "./communityDropdown";
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -97,16 +98,18 @@ const Navbar = () => {
             >
               Sign In
             </Button>
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gray-200 transition-opacity duration-200 rounded-lg" />
+            {/* <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gray-200 transition-opacity duration-200 rounded-lg" /> */}
           </div>
           <div className="relative z-10 group">
+          <Link href="/dpage/check" passHref>
             <Button 
               variant="outline" 
               className="px-6 py-3 text-white bg-black w-full group-hover:bg-gray-300 hover:text-black transition-colors duration-200"
             >
               Try It Free
             </Button>
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black transition-opacity duration-200 rounded-lg" />
+          </Link>
+            {/* <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-black transition-opacity duration-200 rounded-lg" /> */}
           </div>
         </div>
 

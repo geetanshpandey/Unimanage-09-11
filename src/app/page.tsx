@@ -99,7 +99,7 @@ export default function Home() {
       {/* New Image After Modern Video Player */}
       <div className="my-8 flex justify-center">
         <Image 
-          src="/Notion.png" 
+          src="/better.png" 
           alt="Another Descriptive Alt Text" 
           width={800} 
           height={400} 

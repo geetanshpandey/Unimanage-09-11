@@ -71,7 +71,7 @@ const Demo = () => {
         Demo Plans <span className="text-pink-800">Tailored for Your Needs</span>
       </h2>
       <p className="mt-4 text-lg text-gray-600 text-center max-w-xl">
-        Explore our demo plans designed to showcase our product's capabilities and help you choose the best fit for your business.
+        Explore our demo plans designed to showcase our product&apos;s capabilities and help you choose the best fit for your business.
       </p>
 
       <div className="grid grid-cols-1 gap-6 mt-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">

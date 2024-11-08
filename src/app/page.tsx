@@ -33,7 +33,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 mb-8">
             <Link href="/dpage/check" passHref>
               <button className="bg-pink-800 text-white px-6 py-3 rounded-lg w-full md:w-auto hover:bg-purple-400 hover:text-black">
-                Start now - It's free
+                Start now - It&apos;s free
               </button>
             </Link>
 

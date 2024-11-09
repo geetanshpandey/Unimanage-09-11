@@ -49,7 +49,7 @@ const Demo = () => {
         "Dedicated support",
         "Meeting Scheduling",
       ],
-      link: "https://gn6qrq2x-3000.inc1.devtunnels.ms/", // Link for the third button
+      link: "http://localhost:3000/", // Link for the third button
     },
   ];
 

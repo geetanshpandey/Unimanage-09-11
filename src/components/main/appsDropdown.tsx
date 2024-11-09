@@ -147,7 +147,7 @@ const AppsDropdown = () => {
                 </a>
                 </li>
                 <li><Link href="/supplychain/plm">Slack</Link></li>
-                <li><a href="https://gn6qrq2x-3000.inc1.devtunnels.ms" target="_blank">
+                <li><a href="http://localhost:3000" target="_blank">
                   Calendly
                     </a>
                 </li>
